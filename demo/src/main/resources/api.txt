@@ -1,0 +1,102 @@
+-----------------------------------------------------
+login:
+    url:    /user/login
+    type:   post
+    params: {username:'', password:''}
+    return: {sign:''(1 or 0), msg:'', url:'MAIN_PAGE_URL'}
+-----------------------------------------------------
+[page]reg:
+    url:    /reg
+    type:   get
+    params: null
+    return: page:reg.html
+-----------------------------------------------------
+[page]repass:
+    url:    /repass
+    type:   get
+    params: null
+    return: page:repass.html
+-----------------------------------------------------
+register:
+    url:    /user/register
+    type:   post
+    params: { user:{ username:'', password:'' },
+              userInfo:{ uid:'1', phone:'', email:'', sex:'', born:'' } }
+    return: {res:''(1 or 0), msg:''}
+-----------------------------------------------------
+repass:
+    url:    /user/repass
+    type:   post
+    params: {phone:'', password:''}
+    return: {res:''(1 or 0), msg:''}
+-----------------------------------------------------
+me:
+    url:    /user/me
+    type:   get
+    params: null
+    return: {uid:'', username:''}
+-----------------------------------------------------
+type:
+    url:    /user/type
+    type:   get
+    params: uid
+    return: type
+-----------------------------------------------------
+allFile:
+    url:    /file/all
+    type:   get
+    params: null
+    return: JSON.toJsonString(files)
+-----------------------------------------------------
+allUser:
+    url:    /user/all
+    type:   get
+    params: null
+    return: JSON.toJsonString(users)
+-----------------------------------------------------
+myInfo:
+    url:    /user/myinfo
+    type:   get
+    params: null
+    return: myInfo
+-----------------------------------------------------
+myFile:
+    url:    /file/myfile
+    type:   get
+    params: uid
+    return: myFiles
+-----------------------------------------------------
+upType:
+    url:    /user/uptype
+    type:   get
+    params: type & uid
+    return: null
+-----------------------------------------------------
+delUser:
+    url:    /user/del
+    type:   get
+    params: uid
+    return: null
+-----------------------------------------------------
+delFile:
+    url:    /file/del
+    type:   post
+    params: {filename:'', url:''}
+    return: null
+-----------------------------------------------------
+addFile:
+    url:    /file/details
+    type:   post
+    params: {fileInfo:{...}}
+    return: msg
+-----------------------------------------------------
+uploadFile:
+    url:    /file/upload
+    type:   multipart/form-data
+    return: FILE_URL
+-----------------------------------------------------
+exit:
+    url:    /user/exit
+    type:   get
+    params: null
+    return: null
